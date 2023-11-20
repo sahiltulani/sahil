@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DSA Question Solutions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 20px;
+        }
+
+        .subtopics {
+            flex: 1;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+        }
+
+        .subtopics h2 {
+            color: #ff6f61;
+            font-size: 24px;
+        }
+
+        .subtopics ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .subtopics li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .subtopics a {
+            text-decoration: none;
+            color: #3498db;
+            transition: color 0.3s;
+            font-weight: bold;
+        }
+
+        .subtopics a:hover {
+            color: #ff6f61;
+        }
+
+        .about {
+            flex: 1;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+        }
+
+        .about h2 {
+            color: #ff6f61;
+            font-size: 24px;
+        }
+
+        .about p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        section.get-started {
+            flex: 2;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+        }
+
+        section.get-started h2 {
+            color: #ff6f61;
+            font-size: 24px;
+        }
+
+        section.get-started p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        a.get-started-link {
+            text-decoration: none;
+            background-color: #ff6f61;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        a.get-started-link:hover {
+            background-color: #ff5048;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        @media screen and (max-width: 768px) {
+            main {
+                flex-direction: column;
+            }
+
+            .subtopics, .about, .get-started {
+                flex: 1;
+            }
+        }
+
+        .questions-and-answers {
+            flex: 1;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+        }
+
+        .questions-and-answers h2 {
+            color: #ff6f61;
+            font-size: 24px;
+        }
+
+        .question {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+        }
+
+        .question h3 {
+            color: #3498db;
+            font-size: 20px;
+        }
+
+        .question p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .answer {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+        }
+
+        .answer h3 {
+            color: #3498db;
+            font-size: 20px;
+        }
+
+        .answer p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .output {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+        }
+
+        .output h3 {
+            color: #3498db;
+            font-size: 20px;
+        }
+
+        .output textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .array-questions {
+            flex: 1;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+        }
+
+        .array-questions h2 {
+            color: #ff6f61;
+            font-size: 24px;
+        }
+
+        .array-question {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+        }
+
+        .array-question h3 {
+            color: #3498db;
+            font-size: 20px;
+        }
+
+        .array-question p {
+            color: #666;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to DSA Question Solutions</h1>
+        <p>Your go-to source for cracking DSA problems!</p>
+    </header>
+
+    <main>
+        <section class="subtopics">
+            <h2>Let's Dive In!</h2>
+            <ul>
+                <li><a href="C:\Users\Admin\Desktop\website bca 2\arrays.html">Array</a></li>
+                <li><a href="C:\Users\Admin\Desktop\website bca 2\2d array.html">2D Array</a></li>
+                <li><a href="C:\Users\Admin\Desktop\website bca 2\strings.html">Strings</a></li>
+                <li><a href="C:\Users\Admin\Desktop\website bca 2\stacks.html">Stacks</a></li>
+                <li><a href="C:\Users\Admin\Desktop\website bca 2\queues.html">Queue</a></li>
+                <li><a href="C:\Users\Admin\Desktop\website bca 2\linked list.html">Linked List</a></li>
+                <li><a href=>Graphs</a></li>
+                <li><a href="C:\Users\Admin\Desktop\website bca 2\tree.html">Trees</a></li>
+                <li><a href="C:\Users\Admin\Desktop\website bca 2\searching and sorting.html">Searching and Sorting</a></li>
+            </ul>
+        </section>
+
+        <section class="about">
+            <h2>About Us</h2>
+            <p>We're a bunch of tech geeks who love solving puzzles. Our mission is to help you conquer those tricky DSA questions and level up your skills.</p>
+        </section>
+        
+     
+    </main>
+  <section class="get-started">
+        <h2>Ready to Rock?</h2>
+        <p>Jump into the world of DSA problem-solving and elevate your coding game!</p>
+        <a href="questions.html" class="get-started-link">Let's Go!</a>
+    </section>
+
+   
+    
+
+    <footer>
+        2023 DSA Question Solutions
+    </footer>
+
+</body>
+</html>
