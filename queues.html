@@ -1,0 +1,1765 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Queues</title>
+</head>
+
+<body>
+  <header>
+        <h1>Welcome to DSA Question Solutions</h1>
+        <p>Your go-to source for cracking DSA problems!</p>
+ <style>
+        header {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+</style>
+    </header>
+
+
+  <script>
+
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
+</script>
+<button onclick="topFunction()" id="myBtn" title="Go to top"><img src="icons8-arrow-up-26.png" alt=""></button>
+
+
+
+  <div>
+    <h1> Queues </h1>
+  </div>
+
+  <div>
+
+    <pre class="program">
+    <h2> 1) PROGRAM :- IMPLEMENT THE OPERATIONS OF SIMPLE QUEUE IN AN INTEGER ARRAY(INSERT, DELETE, PEEK, ISEMPTY,ISFULL) </h2>
+    <code> 
+    #include&lt;stdio.h&gt; 
+    #include&lt;stdbool.h&gt; 
+
+    int queue[10];
+int front = -1;
+int rear = -1;
+
+// Function to check if the queue is empty
+bool isEmpty()
+{
+    return front == -1;
+}
+
+// Function to check if the queue is full
+bool isFull()
+{
+    return (rear == 10 - 1) ? true : false;
+}
+
+// Function to insert (enqueue) an element into the queue
+void insert(int value)
+{
+    if (isFull())
+    {
+        printf("Queue is full. Cannot insert %d.\n", value);
+        return;
+    }
+
+    if (isEmpty())
+    {
+        front = rear = 0;
+    }
+    else
+    {
+        rear++;
+    }
+
+    queue[rear] = value;
+    printf("Inserted %d into the queue.\n", value);
+}
+
+// Function to delete (dequeue) an element from the queue
+int delete()
+{
+    if (isEmpty())
+    {
+        printf("Queue is empty. Cannot delete.\n");
+        return -1;
+    }
+
+    int deletedValue = queue[front];
+    if (front == rear)
+    {
+        front = rear = -1;
+    }
+    else
+    {
+        front++;
+    }
+
+    return deletedValue;
+}
+
+// Function to get the front element of the queue (PEEK)
+int peek()
+{
+    if (isEmpty())
+    {
+        printf("Queue is empty. Cannot peek.\n");
+        return -1;
+    }
+
+    return queue[front];
+}
+
+int main()
+{
+    insert(10);
+    insert(20);
+    insert(30);
+    insert(40);
+
+    printf("Front element: %d\n", peek());
+
+    printf("Deleted element: %d\n", delete ());
+    printf("Deleted element: %d\n", delete ());
+
+    printf("Front element: %d\n", peek());
+
+    insert(50);
+    insert(60);
+
+    while (!isEmpty())
+    {
+        printf("Deleted element: %d\n", delete ());
+    }
+
+    return 0;
+}
+
+   
+
+  
+  </code>
+  </pre>
+  </div>
+  
+    
+  <div>
+      <pre class="program">
+              <h2>Output:- </h2>
+                
+              Inserted 10 into the queue.
+              Inserted 20 into the queue.        
+              Inserted 30 into the queue.        
+              Inserted 40 into the queue.        
+              Front element: 10
+              Deleted element: 10
+              Deleted element: 20
+              Front element: 30
+              Inserted 50 into the queue.        
+              Inserted 60 into the queue.        
+              Deleted element: 30
+              Deleted element: 40
+              Deleted element: 50
+              Deleted element: 60
+  
+          </pre>
+    </div>
+
+
+    <div>
+
+        <pre class="program">
+        <h2> 2) PROGRAM :- IMPLEMENT THE OPERATIONS OF SIMPLE QUEUE IN AN STRING ARRAY(INSERT, DELETE, PEEK, ISEMPTY,ISFULL) </h2>
+        <code> 
+        #include&lt;stdio.h&gt; 
+        #include&lt;stdbool.h&gt; 
+        #include&lt;string.h&gt; 
+    
+        #define MAX_SIZE 10
+        #define MAX_STRING_LENGTH 50
+
+char queue[MAX_SIZE][MAX_STRING_LENGTH];
+int front = -1;
+int rear = -1;
+
+// Function to check if the queue is empty
+bool isEmpty()
+{
+    return front == -1;
+}
+
+// Function to check if the queue is full
+bool isFull()
+{
+    return (rear == MAX_SIZE - 1) ? true : false;
+}
+
+// Function to insert (enqueue) a string into the queue
+void insert(char *value)
+{
+    if (isFull())
+    {
+        printf("Queue is full. Cannot insert %s.\n", value);
+        return;
+    }
+
+    if (isEmpty())
+    {
+        front = rear = 0;
+    }
+    else
+    {
+        rear++;
+    }
+
+    strncpy(queue[rear], value, MAX_STRING_LENGTH);
+    printf("Inserted %s into the queue.\n", value);
+}
+
+// Function to delete (dequeue) a string from the queue
+void delete()
+{
+    if (isEmpty())
+    {
+        printf("Queue is empty. Cannot delete.\n");
+        return;
+    }
+
+    printf("Deleted element: %s\n", queue[front]);
+
+    if (front == rear)
+    {
+        front = rear = -1;
+    }
+    else
+    {
+        front++;
+    }
+}
+
+// Function to get the front element of the queue (PEEK)
+char *peek()
+{
+    if (isEmpty())
+    {
+        printf("Queue is empty. Cannot peek.\n");
+        return NULL;
+    }
+
+    return queue[front];
+}
+
+int main()
+{
+    insert("One");
+    insert("Two");
+    insert("Three");
+    insert("Four");
+
+    printf("Front element: %s\n", peek());
+
+    delete ();
+    delete ();
+
+    printf("Front element: %s\n", peek());
+
+    insert("Five");
+    insert("Six");
+
+    while (!isEmpty())
+    {
+        delete ();
+    }
+
+    return 0;
+}
+
+    
+       
+    
+      
+      </code>
+      </pre>
+      </div>
+
+
+      <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                  
+                Inserted One into the queue.
+                Inserted Two into the queue.       
+                Inserted Three into the queue.     
+                Inserted Four into the queue.      
+                Front element: One
+                Deleted element: One
+                Deleted element: Two
+                Front element: Three
+                Inserted Five into the queue.      
+                Inserted Six into the queue.       
+                Deleted element: Three
+                Deleted element: Four
+                Deleted element: Five
+                Deleted element: Six
+    
+            </pre>
+      </div>
+
+
+      <div>
+
+        <pre class="program">
+        <h2> 3) PROGRAM :- IMPLEMENT THE OPERATIONS OF QUEUE DYNAMICALLY OF INTEGERS(INSERT,DELETE,PEEK,ISEMPTY,ISFULL) </h2>
+        <code> 
+        #include&lt;stdio.h&gt; 
+        #include&lt;stdbool.h&gt;
+        #include&lt;stdlib.h&gt;
+
+        struct Node
+{
+    int data;
+    struct Node *next;
+};
+
+struct Queue
+{
+    struct Node *front;
+    struct Node *rear;
+};
+
+// Function to initialize an empty queue
+struct Queue *createQueue()
+{
+    struct Queue *queue = (struct Queue *)malloc(sizeof(struct Queue));
+    if (queue == NULL)
+    {
+        perror("Memory allocation error");
+        exit(1);
+    }
+    queue->front = queue->rear = NULL;
+    return queue;
+}
+
+// Function to check if the queue is empty
+bool isEmpty(struct Queue *queue)
+{
+    return (queue->front == NULL);
+}
+
+// Function to insert (enqueue) an element into the queue
+void insert(struct Queue *queue, int value)
+{
+    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
+    if (newNode == NULL)
+    {
+        perror("Memory allocation error");
+        exit(1);
+    }
+    newNode->data = value;
+    newNode->next = NULL;
+
+    if (isEmpty(queue))
+    {
+        queue->front = queue->rear = newNode;
+    }
+    else
+    {
+        queue->rear->next = newNode;
+        queue->rear = newNode;
+    }
+
+    printf("Inserted %d into the queue.\n", value);
+}
+
+// Function to delete (dequeue) an element from the queue
+int delete(struct Queue *queue)
+{
+    if (isEmpty(queue))
+    {
+        printf("Queue is empty. Cannot delete.\n");
+        return -1;
+    }
+
+    struct Node *temp = queue->front;
+    int deletedValue = temp->data;
+    queue->front = temp->next;
+    free(temp);
+
+    return deletedValue;
+}
+
+// Function to get the front element of the queue (PEEK)
+int peek(struct Queue *queue)
+{
+    if (isEmpty(queue))
+    {
+        printf("Queue is empty. Cannot peek.\n");
+        return -1;
+    }
+
+    return queue->front->data;
+}
+
+int main()
+{
+    struct Queue *queue = createQueue();
+
+    insert(queue, 10);
+    insert(queue, 20);
+    insert(queue, 30);
+    insert(queue, 40);
+
+    printf("Front element: %d\n", peek(queue));
+
+    printf("Deleted element: %d\n", delete (queue));
+    printf("Deleted element: %d\n", delete (queue));
+
+    printf("Front element: %d\n", peek(queue));
+
+    insert(queue, 50);
+    insert(queue, 60);
+
+    while (!isEmpty(queue))
+    {
+        printf("Deleted element: %d\n", delete (queue));
+    }
+
+    // Free memory used by the queue
+    free(queue);
+
+    return 0;
+}
+
+
+
+      </code>
+      </pre>
+      </div>
+
+
+      <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                  
+                Inserted 10 into the queue.
+                Inserted 20 into the queue.        
+                Inserted 30 into the queue.        
+                Inserted 40 into the queue.        
+                Front element: 10
+                Deleted element: 10
+                Deleted element: 20
+                Front element: 30
+                Inserted 50 into the queue.        
+                Inserted 60 into the queue.        
+                Deleted element: 30
+                Deleted element: 40
+                Deleted element: 50
+                Deleted element: 60
+    
+            </pre>
+      </div>
+
+
+      <div>
+
+        <pre class="program">
+        <h2> 4) PROGRAM :- IMPLEMENT THE OPERATIONS OF QUEUE DYNAMICALLY OF STRING(INSERT,DELETE,PEEK,ISEMPTY,ISFULL) </h2>
+        <code> 
+        #include&lt;stdio.h&gt; 
+        #include&lt;stdbool.h&gt;
+        #include&lt;stdlib.h&gt;
+        #include&lt;string.h&gt;
+
+        #define MAX_STRING_LENGTH 50
+
+struct Node
+{
+    char data[MAX_STRING_LENGTH];
+    struct Node *next;
+};
+
+struct Queue
+{
+    struct Node *front;
+    struct Node *rear;
+};
+
+// Function to initialize an empty queue
+struct Queue *createQueue()
+{
+    struct Queue *queue = (struct Queue *)malloc(sizeof(struct Queue));
+    if (queue == NULL)
+    {
+        perror("Memory allocation error");
+        exit(1);
+    }
+    queue->front = queue->rear = NULL;
+    return queue;
+}
+
+// Function to check if the queue is empty
+bool isEmpty(struct Queue *queue)
+{
+    return (queue->front == NULL);
+}
+
+// Function to insert (enqueue) a string into the queue
+void insert(struct Queue *queue, const char *value)
+{
+    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
+    if (newNode == NULL)
+    {
+        perror("Memory allocation error");
+        exit(1);
+    }
+    strncpy(newNode->data, value, MAX_STRING_LENGTH);
+    newNode->next = NULL;
+
+    if (isEmpty(queue))
+    {
+        queue->front = queue->rear = newNode;
+    }
+    else
+    {
+        queue->rear->next = newNode;
+        queue->rear = newNode;
+    }
+
+    printf("Inserted %s into the queue.\n", value);
+}
+
+// Function to delete (dequeue) a string from the queue
+char *delete(struct Queue *queue)
+{
+    if (isEmpty(queue))
+    {
+        printf("Queue is empty. Cannot delete.\n");
+        return NULL;
+    }
+
+    struct Node *temp = queue->front;
+    char *deletedValue = strdup(temp->data);
+    queue->front = temp->next;
+    free(temp);
+
+    return deletedValue;
+}
+
+// Function to get the front element of the queue (PEEK)
+char *peek(struct Queue *queue)
+{
+    if (isEmpty(queue))
+    {
+        printf("Queue is empty. Cannot peek.\n");
+        return NULL;
+    }
+
+    return queue->front->data;
+}
+
+int main()
+{
+    struct Queue *queue = createQueue();
+
+    insert(queue, "One");
+    insert(queue, "Two");
+    insert(queue, "Three");
+    insert(queue, "Four");
+
+    printf("Front element: %s\n", peek(queue));
+
+    char *deletedElement = delete (queue);
+    if (deletedElement)
+    {
+        printf("Deleted element: %s\n", deletedElement);
+        free(deletedElement);
+    }
+
+    deletedElement = delete (queue);
+    if (deletedElement)
+    {
+        printf("Deleted element: %s\n", deletedElement);
+        free(deletedElement);
+    }
+
+    printf("Front element: %s\n", peek(queue));
+
+    insert(queue, "Five");
+    insert(queue, "Six");
+
+    while (!isEmpty(queue))
+    {
+        deletedElement = delete (queue);
+        if (deletedElement)
+        {
+            printf("Deleted element: %s\n", deletedElement);
+            free(deletedElement);
+        }
+    }
+
+    // Free memory used by the queue
+    free(queue);
+
+    return 0;
+}
+
+
+
+
+      </code>
+      </pre>
+      </div>
+
+
+      <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                  
+                Inserted One into the queue.
+                Inserted Two into the queue.       
+                Inserted Three into the queue.     
+                Inserted Four into the queue.      
+                Front element: One
+                Deleted element: One
+                Deleted element: Two
+                Front element: Three
+                Inserted Five into the queue.      
+                Inserted Six into the queue.       
+                Deleted element: Three
+                Deleted element: Four
+                Deleted element: Five
+                Deleted element: Six
+    
+            </pre>
+      </div>
+
+
+      <div>
+
+        <pre class="program">
+        <h2> 5) PROGRAM :- IMPLEMENT THE OPERATIONS OF CIRCULAR QUEUE IN AN INTEGER ARRAY(INSERT,DELETE,PEEK,ISEMPTY,ISFULL) </h2>
+        <code> 
+        #include&lt;stdio.h&gt;
+        
+        #define MAX_SIZE 10
+
+int queue[MAX_SIZE];
+int front = -1, rear = -1;
+
+// Function to check if the queue is empty
+int isEmpty()
+{
+    return (front == -1 && rear == -1);
+}
+
+// Function to check if the queue is full
+int isFull()
+{
+    return ((rear + 1) % MAX_SIZE == front);
+}
+
+// Function to insert an element into the queue
+void enqueue(int value)
+{
+    if (isFull())
+    {
+        printf("Queue is full. Cannot enqueue %d.\n", value);
+        return;
+    }
+
+    if (isEmpty())
+    {
+        front = rear = 0;
+    }
+    else
+    {
+        rear = (rear + 1) % MAX_SIZE;
+    }
+
+    queue[rear] = value;
+    printf("%d has been enqueued.\n", value);
+}
+
+// Function to remove an element from the queue
+void dequeue()
+{
+    if (isEmpty())
+    {
+        printf("Queue is empty. Cannot dequeue.\n");
+        return;
+    }
+
+    printf("%d has been dequeued.\n", queue[front]);
+
+    if (front == rear)
+    {
+        front = rear = -1;
+    }
+    else
+    {
+        front = (front + 1) % MAX_SIZE;
+    }
+}
+
+// Function to get the front element of the queue without removing it
+int peek()
+{
+    if (isEmpty())
+    {
+        printf("Queue is empty. No element to peek.\n");
+        return -1;
+    }
+
+    return queue[front];
+}
+
+int main()
+{
+    enqueue(1);
+    enqueue(2);
+    enqueue(3);
+
+    printf("Front element: %d\n", peek());
+
+    dequeue();
+    enqueue(4);
+
+    printf("Front element: %d\n", peek());
+
+    dequeue();
+    dequeue();
+    dequeue();
+
+    if (isEmpty())
+    {
+        printf("Queue is empty.\n");
+    }
+
+    return 0;
+}
+
+        
+      </code>
+      </pre>
+      </div>
+
+
+      <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                  
+                1 has been enqueued.
+                2 has been enqueued.
+                3 has been enqueued.
+                Front element: 1
+                1 has been dequeued.
+                4 has been enqueued.
+                Front element: 2
+                2 has been dequeued.
+                3 has been dequeued.
+                4 has been dequeued.
+                Queue is empty.
+
+            </pre>
+      </div>
+
+
+      <div>
+
+        <pre class="program">
+        <h2> 6) PROGRAM :- IMPLEMENT THE OPERATIONS OF CIRCULAR QUEUE IN AN STRING ARRAY(INSERT,DELETE,PEEK,ISEMPTY,ISFULL) </h2>
+        <code> 
+        #include&lt;stdio.h&gt;
+        #include&lt;string.h&gt;
+        
+        #define MAX_SIZE 10
+#define MAX_STRING_LENGTH 50
+
+char queue[MAX_SIZE][MAX_STRING_LENGTH];
+int front = -1, rear = -1;
+
+// Function to check if the queue is empty
+int isEmpty()
+{
+    return (front == -1 && rear == -1);
+}
+
+// Function to check if the queue is full
+int isFull()
+{
+    return ((rear + 1) % MAX_SIZE == front);
+}
+
+// Function to insert a string into the queue
+void enqueue(const char *value)
+{
+    if (isFull())
+    {
+        printf("Queue is full. Cannot enqueue %s.\n", value);
+        return;
+    }
+
+    if (isEmpty())
+    {
+        front = rear = 0;
+    }
+    else
+    {
+        rear = (rear + 1) % MAX_SIZE;
+    }
+
+    strcpy(queue[rear], value);
+    printf("%s has been enqueued.\n", value);
+}
+
+// Function to remove a string from the queue
+void dequeue()
+{
+    if (isEmpty())
+    {
+        printf("Queue is empty. Cannot dequeue.\n");
+        return;
+    }
+
+    printf("%s has been dequeued.\n", queue[front]);
+
+    if (front == rear)
+    {
+        front = rear = -1;
+    }
+    else
+    {
+        front = (front + 1) % MAX_SIZE;
+    }
+}
+
+// Function to get the front string of the queue without removing it
+char *peek()
+{
+    if (isEmpty())
+    {
+        printf("Queue is empty. No element to peek.\n");
+        return NULL;
+    }
+
+    return queue[front];
+}
+
+int main()
+{
+    enqueue("Alice");
+    enqueue("Bob");
+    enqueue("Charlie");
+
+    printf("Front element: %s\n", peek());
+
+    dequeue();
+    enqueue("David");
+
+    printf("Front element: %s\n", peek());
+
+    dequeue();
+    dequeue();
+    dequeue();
+
+    if (isEmpty())
+    {
+        printf("Queue is empty.\n");
+    }
+
+    return 0;
+}
+
+
+        
+      </code>
+      </pre>
+      </div>
+
+
+      <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                  
+                Alice has been enqueued.
+                Bob has been enqueued.
+                Charlie has been enqueued.
+                Front element: Alice
+                Alice has been dequeued.
+                David has been enqueued.
+                Front element: Bob
+                Bob has been dequeued.
+                Charlie has been dequeued.
+                David has been dequeued.
+                Queue is empty.
+
+            </pre>
+      </div>
+
+
+      <div>
+
+        <pre class="program">
+        <h2> 7) PROGRAM :- IMPLEMENT THE OPERATIONS OF PRIORITY QUEUE IN AN INTEGER ARRAY(INSERT,DELETE,PEEK,ISEMPTY,ISFULL) </h2>
+        <code> 
+        #include&lt;stdio.h&gt;
+        
+        #define MAX_SIZE 10
+
+int priorityQueue[MAX_SIZE];
+int rear = -1;
+
+// Function to check if the priority queue is empty
+int isEmpty()
+{
+    return (rear == -1);
+}
+
+// Function to check if the priority queue is full
+int isFull()
+{
+    return (rear == MAX_SIZE - 1);
+}
+
+// Function to insert an element with its priority into the priority queue
+void insert(int value)
+{
+    if (isFull())
+    {
+        printf("Priority queue is full. Cannot insert %d.\n", value);
+        return;
+    }
+
+    int i;
+    for (i = rear; i >= 0; i--)
+    {
+        if (value > priorityQueue[i])
+        {
+            priorityQueue[i + 1] = priorityQueue[i];
+        }
+        else
+        {
+            break;
+        }
+    }
+
+    priorityQueue[i + 1] = value;
+    rear++;
+    printf("%d has been inserted.\n", value);
+}
+
+// Function to remove the highest-priority element from the priority queue
+void delete()
+{
+    if (isEmpty())
+    {
+        printf("Priority queue is empty. Cannot delete.\n");
+        return;
+    }
+
+    printf("%d has been deleted.\n", priorityQueue[rear]);
+    rear--;
+}
+
+// Function to get the highest-priority element without removing it
+int peek()
+{
+    if (isEmpty())
+    {
+        printf("Priority queue is empty. No element to peek.\n");
+        return -1;
+    }
+
+    return priorityQueue[rear];
+}
+
+int main()
+{
+    insert(5);
+    insert(10);
+    insert(3);
+
+    printf("Highest-priority element: %d\n", peek());
+
+    delete ();
+    insert(7);
+
+    printf("Highest-priority element: %d\n", peek());
+
+    delete ();
+    delete ();
+    delete ();
+
+    if (isEmpty())
+    {
+        printf("Priority queue is empty.\n");
+    }
+
+    return 0;
+}
+
+
+        
+      </code>
+      </pre>
+      </div>
+
+
+      <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                  
+                5 has been inserted.
+                10 has been inserted.
+                3 has been inserted.
+                Highest-priority element: 3        
+                3 has been deleted.
+                7 has been inserted.
+                Highest-priority element: 5        
+                5 has been deleted.
+                7 has been deleted.
+                10 has been deleted.
+                Priority queue is empty.
+
+            </pre>
+      </div>
+
+
+      <div>
+
+        <pre class="program">
+        <h2> 8) PROGRAM :- IMPLEMENT THE OPERATIONS OF PRIORITY QUEUE IN AN STRING ARRAY(INSERT,DELETE,PEEK,ISEMPTY,ISFULL) </h2>
+        <code> 
+        #include&lt;stdio.h&gt;
+        #include&lt;string.h&gt;
+
+        #define MAX_SIZE 10
+#define MAX_STRING_LENGTH 50
+
+char priorityQueue[MAX_SIZE][MAX_STRING_LENGTH];
+int rear = -1;
+
+// Function to check if the priority queue is empty
+int isEmpty()
+{
+    return (rear == -1);
+}
+
+// Function to check if the priority queue is full
+int isFull()
+{
+    return (rear == MAX_SIZE - 1);
+}
+
+// Function to insert a string with its priority into the priority queue
+void insert(const char *value)
+{
+    if (isFull())
+    {
+        printf("Priority queue is full. Cannot insert %s.\n", value);
+        return;
+    }
+
+    int i;
+    for (i = rear; i >= 0; i--)
+    {
+        if (strlen(value) < strlen(priorityQueue[i]))
+        {
+            strcpy(priorityQueue[i + 1], priorityQueue[i]);
+        }
+        else
+        {
+            break;
+        }
+    }
+
+    strcpy(priorityQueue[i + 1], value);
+    rear++;
+    printf("%s has been inserted.\n", value);
+}
+
+// Function to remove the highest-priority string from the priority queue
+void delete()
+{
+    if (isEmpty())
+    {
+        printf("Priority queue is empty. Cannot delete.\n");
+        return;
+    }
+
+    printf("%s has been deleted.\n", priorityQueue[rear]);
+    rear--;
+}
+
+// Function to get the highest-priority string without removing it
+const char *peek()
+{
+    if (isEmpty())
+    {
+        printf("Priority queue is empty. No element to peek.\n");
+        return NULL;
+    }
+
+    return priorityQueue[rear];
+}
+
+int main()
+{
+    insert("apple");
+    insert("banana");
+    insert("cherry");
+
+    printf("Highest-priority element: %s\n", peek());
+
+    delete ();
+    insert("date");
+
+    printf("Highest-priority element: %s\n", peek());
+
+    delete ();
+    delete ();
+    delete ();
+
+    if (isEmpty())
+    {
+        printf("Priority queue is empty.\n");
+    }
+
+    return 0;
+}
+
+        
+        
+      </code>
+      </pre>
+      </div>
+
+
+      <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                  
+                apple has been inserted.
+                banana has been inserted.
+                cherry has been inserted.
+                Highest-priority element: cherry   
+                cherry has been deleted.
+                date has been inserted.
+                Highest-priority element: banana   
+                banana has been deleted.
+                apple has been deleted.
+                date has been deleted.
+                Priority queue is empty.
+
+            </pre>
+      </div>
+
+
+      <div>
+
+        <pre class="program">
+        <h2> 9) PROGRAM :- IMPLEMENT THE OPERATIONS OF DOUBLE ENDED QUEUE IN AN INTEGER ARRAY(INSERT,DELETE,PEEK,ISEMPTY,<br>ISFULL) </h2>
+        <code> 
+        #include&lt;stdio.h&gt;
+
+        #define MAX_SIZE 10
+
+int deque[MAX_SIZE];
+int front = -1, rear = -1;
+
+// Function to check if the deque is empty
+int isEmpty()
+{
+    return (front == -1 && rear == -1);
+}
+
+// Function to check if the deque is full
+int isFull()
+{
+    return (rear == MAX_SIZE - 1);
+}
+
+// Function to insert an element at the front of the deque
+void insertFront(int value)
+{
+    if (isFull())
+    {
+        printf("Deque is full. Cannot insert at the front.\n");
+        return;
+    }
+
+    if (isEmpty())
+    {
+        front = rear = 0;
+    }
+    else
+    {
+        front--;
+        if (front < 0)
+        {
+            front = MAX_SIZE - 1;
+        }
+    }
+
+    deque[front] = value;
+    printf("%d has been inserted at the front.\n", value);
+}
+
+// Function to insert an element at the rear of the deque
+void insertRear(int value)
+{
+    if (isFull())
+    {
+        printf("Deque is full. Cannot insert at the rear.\n");
+        return;
+    }
+
+    if (isEmpty())
+    {
+        front = rear = 0;
+    }
+    else
+    {
+        rear++;
+    }
+
+    deque[rear] = value;
+    printf("%d has been inserted at the rear.\n", value);
+}
+
+// Function to delete an element from the front of the deque
+void deleteFront()
+{
+    if (isEmpty())
+    {
+        printf("Deque is empty. Cannot delete from the front.\n");
+        return;
+    }
+
+    printf("%d has been deleted from the front.\n", deque[front]);
+
+    if (front == rear)
+    {
+        front = rear = -1;
+    }
+    else
+    {
+        front++;
+        if (front == MAX_SIZE)
+        {
+            front = 0;
+        }
+    }
+}
+
+// Function to delete an element from the rear of the deque
+void deleteRear()
+{
+    if (isEmpty())
+    {
+        printf("Deque is empty. Cannot delete from the rear.\n");
+        return;
+    }
+
+    printf("%d has been deleted from the rear.\n", deque[rear]);
+
+    if (front == rear)
+    {
+        front = rear = -1;
+    }
+    else
+    {
+        rear--;
+        if (rear < 0)
+        {
+            rear = MAX_SIZE - 1;
+        }
+    }
+}
+
+// Function to peek at the element at the front of the deque
+int peekFront()
+{
+    if (isEmpty())
+    {
+        printf("Deque is empty. No element to peek at the front.\n");
+        return -1;
+    }
+
+    return deque[front];
+}
+
+// Function to peek at the element at the rear of the deque
+int peekRear()
+{
+    if (isEmpty())
+    {
+        printf("Deque is empty. No element to peek at the rear.\n");
+        return -1;
+    }
+
+    return deque[rear];
+}
+
+int main()
+{
+    insertFront(1);
+    insertRear(2);
+    insertFront(3);
+
+    printf("Front element: %d, Rear element: %d\n", peekFront(), peekRear());
+
+    deleteFront();
+    deleteRear();
+
+    printf("Front element: %d, Rear element: %d\n", peekFront(), peekRear());
+
+    deleteFront();
+
+    if (isEmpty())
+    {
+        printf("Deque is empty.\n");
+    }
+
+    return 0;
+}
+
+        
+
+      </code>
+      </pre>
+      </div>
+
+
+      <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                  
+                1 has been inserted at the front.
+                2 has been inserted at the rear.   
+                3 has been inserted at the front.  
+                Front element: 3, Rear element: 2  
+                3 has been deleted from the front. 
+                2 has been deleted from the rear.  
+                Front element: 1, Rear element: 1  
+                1 has been deleted from the front. 
+                Deque is empty.
+
+            </pre>
+      </div>
+
+
+      <div>
+
+        <pre class="program">
+        <h2> 10) PROGRAM :- IMPLEMENT THE OPERATIONS OF DOUBLE ENDED QUEUE IN AN STRING ARRAY (INSERT,DELETE,PEEK,ISEMPTY,<br>ISFULL) </h2>
+        <code> 
+        #include&lt;stdio.h&gt;
+        #include&lt;string.h&gt;
+
+        #define MAX_SIZE 10
+#define MAX_STRING_LENGTH 50
+
+char deque[MAX_SIZE][MAX_STRING_LENGTH];
+int front = -1, rear = -1;
+
+// Function to check if the deque is empty
+int isEmpty()
+{
+    return (front == -1 && rear == -1);
+}
+
+// Function to check if the deque is full
+int isFull()
+{
+    return (rear == MAX_SIZE - 1);
+}
+
+// Function to insert a string at the front of the deque
+void insertFront(const char *value)
+{
+    if (isFull())
+    {
+        printf("Deque is full. Cannot insert at the front.\n");
+        return;
+    }
+
+    if (isEmpty())
+    {
+        front = rear = 0;
+    }
+    else
+    {
+        front--;
+        if (front < 0)
+        {
+            front = MAX_SIZE - 1;
+        }
+    }
+
+    strcpy(deque[front], value);
+    printf("%s has been inserted at the front.\n", value);
+}
+
+// Function to insert a string at the rear of the deque
+void insertRear(const char *value)
+{
+    if (isFull())
+    {
+        printf("Deque is full. Cannot insert at the rear.\n");
+        return;
+    }
+
+    if (isEmpty())
+    {
+        front = rear = 0;
+    }
+    else
+    {
+        rear++;
+    }
+
+    strcpy(deque[rear], value);
+    printf("%s has been inserted at the rear.\n", value);
+}
+
+// Function to delete a string from the front of the deque
+void deleteFront()
+{
+    if (isEmpty())
+    {
+        printf("Deque is empty. Cannot delete from the front.\n");
+        return;
+    }
+
+    printf("%s has been deleted from the front.\n", deque[front]);
+
+    if (front == rear)
+    {
+        front = rear = -1;
+    }
+    else
+    {
+        front++;
+        if (front == MAX_SIZE)
+        {
+            front = 0;
+        }
+    }
+}
+
+// Function to delete a string from the rear of the deque
+void deleteRear()
+{
+    if (isEmpty())
+    {
+        printf("Deque is empty. Cannot delete from the rear.\n");
+        return;
+    }
+
+    printf("%s has been deleted from the rear.\n", deque[rear]);
+
+    if (front == rear)
+    {
+        front = rear = -1;
+    }
+    else
+    {
+        rear--;
+        if (rear < 0)
+        {
+            rear = MAX_SIZE - 1;
+        }
+    }
+}
+
+// Function to peek at the string at the front of the deque
+const char *peekFront()
+{
+    if (isEmpty())
+    {
+        printf("Deque is empty. No element to peek at the front.\n");
+        return NULL;
+    }
+
+    return deque[front];
+}
+
+// Function to peek at the string at the rear of the deque
+const char *peekRear()
+{
+    if (isEmpty())
+    {
+        printf("Deque is empty. No element to peek at the rear.\n");
+        return NULL;
+    }
+
+    return deque[rear];
+}
+
+int main()
+{
+    insertFront("Apple");
+    insertRear("Banana");
+    insertFront("Cherry");
+
+    printf("Front element: %s, Rear element: %s\n", peekFront(), peekRear());
+
+    deleteFront();
+    deleteRear();
+
+    printf("Front element: %s, Rear element: %s\n", peekFront(), peekRear());
+
+    deleteFront();
+
+    if (isEmpty())
+    {
+        printf("Deque is empty.\n");
+    }
+
+    return 0;
+}
+
+
+        
+      </code>
+      </pre>
+      </div>
+
+
+      <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                  
+                Apple has been inserted at the front.
+                Banana has been inserted at the rear.      
+                Cherry has been inserted at the front.     
+                Front element: Cherry, Rear element: Banana
+                Cherry has been deleted from the front.    
+                Banana has been deleted from the rear.     
+                Front element: Apple, Rear element: Apple  
+                Apple has been deleted from the front.     
+                Deque is empty.
+
+            </pre>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Searching and Sorting</title>
+ <style>
+        header {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+</style>
+</head>
+
+<body>
+  <header>
+        <h1>Welcome to DSA Question Solutions</h1>
+        <p>Your go-to source for cracking DSA problems!</p>
+    </header>
+
+
+  <script>
+
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
+</script>
+<button onclick="topFunction()" id="myBtn" title="Go to top"><img src="icons8-arrow-up-26.png" alt=""></button>
+
+
+
+  <div>
+    <h1> Searching and Sorting </h1>
+  </div>
+
+  <div>
+
+    <pre class="program">
+    <h2> 1) PROGRAM :- ENTER A INTEGER ARRAY FROM THE USER, ENTER AN INTEGER VALUE AND PERFORM LINEAR SEARCH ALGORITHM <br> THROUGH ITERATION.  </h2>
+    <code> 
+    #include&lt;stdio.h&gt;
+    
+    int main()
+{
+    int n, searchValue, found = 0;
+
+    printf("Enter the number of elements in the array: ");
+    scanf("%d", &n);
+
+    int arr[n];
+
+    printf("Enter the elements of the array:\n");
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Enter the integer value to search for: ");
+    scanf("%d", &searchValue);
+
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] == searchValue)
+        {
+            found = 1;
+            printf("Element %d found at index %d.\n", searchValue, i);
+            break; // Exit the loop once the element is found.
+        }
+    }
+
+    if (!found)
+    {
+        printf("Element %d not found in the array.\n", searchValue);
+    }
+
+    return 0;
+}
+
+    
+
+  
+  </code>
+  </pre>
+  </div>
+  
+    
+  <div>
+      <pre class="program">
+              <h2>Output:- </h2>
+                
+              Enter the number of elements in the array: 5
+              Enter the elements of the array:
+              12
+              23
+              45
+              67
+              89
+              Enter the integer value to search for: 45
+              Element 45 found at index 2.
+  
+          </pre>
+    </div>
+
+
+    <div>
+
+      <pre class="program">
+      <h2> 2) PROGRAM :- ENTER A STRING FROM THE USER, ENTER A CHARACTER AND PERFORM LINEAR SEARCH ALGORITHM THROUGH <br> RECURSION.  </h2>
+      <code> 
+      #include&lt;stdio.h&gt;
+
+      int linearSearchRecursive(char str[], char target, int index)
+{
+    if (str[index] == '\0')
+    {
+        return -1;
+    }
+
+    if (str[index] == target)
+    {
+        return index;
+    }
+
+    return linearSearchRecursive(str, target, index + 1);
+}
+
+int main()
+{
+    char str[100], target;
+
+    printf("Enter a string: ");
+    scanf("%s", str);
+
+    printf("Enter the character to search for: ");
+    scanf(" %c", &target); 
+
+    int result = linearSearchRecursive(str, target, 0);
+
+    if (result == -1)
+    {
+        printf("Character '%c' not found in the string.\n", target);
+    }
+    else
+    {
+        printf("Character '%c' found at index %d in the string.\n", target, result);
+    }
+
+    return 0;
+}
+
+      
+     
+    </code>
+    </pre>
+    </div>
+
+
+    <div>
+      <pre class="program">
+              <h2>Output:- </h2>
+                
+              Enter a string: hello
+              Enter the character to search for: e
+              Character 'e' found at index 1 in the string.
+  
+          </pre>
+    </div>
+
+
+    <div>
+
+      <pre class="program">
+      <h2> 3) PROGRAM :- ENTER A INTEGER ARRAY FROM THE USER, ENTER AN INTEGER VALUE AND PERFORM LINEAR SEARCH ALGORITHM <br>THROUGH RECURSION.  </h2>
+      <code> 
+      #include&lt;stdio.h&gt;
+
+      int linearSearchRecursive(int arr[], int searchValue, int index, int n)
+{
+    if (index == n)
+    {
+        return -1;
+    }
+
+    if (arr[index] == searchValue)
+    {
+        return index;
+    }
+
+    return linearSearchRecursive(arr, searchValue, index + 1, n);
+}
+
+int main()
+{
+    int n, searchValue;
+
+    printf("Enter the number of elements in the array: ");
+    scanf("%d", &n);
+
+    int arr[n];
+
+    printf("Enter the elements of the array:\n");
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Enter the integer value to search for: ");
+    scanf("%d", &searchValue);
+
+    int result = linearSearchRecursive(arr, searchValue, 0, n);
+
+    if (result == -1)
+    {
+        printf("Element %d not found in the array.\n", searchValue);
+    }
+    else
+    {
+        printf("Element %d found at index %d in the array.\n", searchValue, result);
+    }
+
+    return 0;
+}
+
+
+      
+     
+    </code>
+    </pre>
+    </div>
+
+
+    <div>
+      <pre class="program">
+              <h2>Output:- </h2>
+                
+              Enter the number of elements in the array: 5
+              Enter the elements of the array:
+              12
+              34
+              22
+              12
+              78
+              Enter the integer value to search for: 78
+              Element 78 found at index 4 in the array.
+  
+          </pre>
+    </div>
+
+
+    <div>
+
+      <pre class="program">
+      <h2> 4) PROGRAM :- ENTER A STRING FROM THE USER, ENTER A CHARACTER AND PERFORM LINEAR SEARCH ALGORITHM THROUGH <br> ITERATION.  </h2>
+      <code> 
+      #include&lt;stdio.h&gt;
+
+      int linearSearchIterative(char str[], char target)
+{
+    int index = 0;
+    while (str[index] != '\0')
+    {
+        if (str[index] == target)
+        {
+            return index;
+        }
+        index++;
+    }
+    return -1;
+}
+
+int main()
+{
+    char str[100], target;
+
+    printf("Enter a string: ");
+    scanf("%s", str);
+
+    printf("Enter the character to search for: ");
+    scanf(" %c", &target);
+
+    int result = linearSearchIterative(str, target);
+
+    if (result == -1)
+    {
+        printf("Character '%c' not found in the string.\n", target);
+    }
+    else
+    {
+        printf("Character '%c' found at index %d in the string.\n", target, result);
+    }
+
+    return 0;
+}
+
+
+
+      
+     
+    </code>
+    </pre>
+    </div>
+
+
+    <div>
+      <pre class="program">
+              <h2>Output:- </h2>
+                
+              Enter a string: information
+              Enter the character to search for: n
+              Character 'n' found at index 1 in the string.
+
+          </pre>
+    </div>
+
+
+    <div>
+
+      <pre class="program">
+      <h2> 5) PROGRAM :- ENTER A INTEGER ARRAY FROM THE USER, ENTER AN INTEGER VALUE AND PERFORM BINARY SEARCH ALGORITHM <br>THROUGH ITERATION.  </h2>
+      <code> 
+      #include&lt;stdio.h&gt;
+
+      int binarySearchIterative(int arr[], int n, int searchValue)
+{
+    int left = 0;
+    int right = n - 1;
+
+    while (left <= right)
+    {
+        int mid = left + (right - left) / 2;
+
+        if (arr[mid] == searchValue)
+        {
+            return mid;
+        }
+
+        if (arr[mid] < searchValue)
+        {
+            left = mid + 1;
+        }
+        else
+        {
+            right = mid - 1;
+        }
+    }
+
+    return -1;
+}
+
+int main()
+{
+    int n, searchValue;
+
+    printf("Enter the number of elements in the sorted array: ");
+    scanf("%d", &n);
+
+    int arr[n];
+
+    printf("Enter the elements of the sorted array:\n");
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Enter the integer value to search for: ");
+    scanf("%d", &searchValue);
+
+    int result = binarySearchIterative(arr, n, searchValue);
+
+    if (result == -1)
+    {
+        printf("Element %d not found in the array.\n", searchValue);
+    }
+    else
+    {
+        printf("Element %d found at index %d in the array.\n", searchValue, result);
+    }
+
+    return 0;
+}
+
+
+
+
+      
+     
+    </code>
+    </pre>
+    </div>
+
+
+    <div>
+      <pre class="program">
+              <h2>Output:- </h2>
+                
+              Enter the number of elements in the sorted array: 5
+              Enter the elements of the sorted array:
+              12
+              34
+              56
+              78
+              98
+              Enter the integer value to search for: 56
+              Element 56 found at index 2 in the array.
+
+          </pre>
+    </div>
+
+
+    <div>
+
+      <pre class="program">
+      <h2> 6) PROGRAM :- ENTER A STRING FROM THE USER, ENTER A CHARACTER AND PERFORM BINARY SEARCH ALGORITHM THROUGH <br> RECURSION.  </h2>
+      <code> 
+      #include&lt;stdio.h&gt;
+      #include&lt;string.h&gt;
+
+
+      int binarySearchRecursive(char str[], char target, int left, int right)
+{
+    if (left > right)
+    {
+        return -1;
+    }
+
+    int mid = left + (right - left) / 2;
+
+    if (str[mid] == target)
+    {
+        return mid;
+    }
+
+    if (str[mid] < target)
+    {
+        return binarySearchRecursive(str, target, mid + 1, right);
+    }
+    else
+    {
+        return binarySearchRecursive(str, target, left, mid - 1);
+    }
+}
+
+int main()
+{
+    char str[100], target;
+
+    printf("Enter a sorted string: ");
+    scanf("%s", str);
+
+    printf("Enter the character to search for: ");
+    scanf(" %c", &target);
+
+    int result = binarySearchRecursive(str, target, 0, strlen(str) - 1);
+
+    if (result == -1)
+    {
+        printf("Character '%c' not found in the string.\n", target);
+    }
+    else
+    {
+        printf("Character '%c' found at index %d in the string.\n", target, result);
+    }
+
+    return 0;
+}
+
+
+
+    </code>
+    </pre>
+    </div>
+
+
+    <div>
+      <pre class="program">
+              <h2>Output:- </h2>
+                
+              Enter a sorted string: abcd
+              Enter the character to search for: b
+              Character 'b' found at index 1 in the string.
+
+          </pre>
+    </div>
+
+
+    <div>
+
+      <pre class="program">
+      <h2> 7) PROGRAM :-  ENTER A INTEGER ARRAY FROM THE USER, ENTER AN INTEGER VALUE AND PERFORM BINARY SEARCH ALGORITHM <br> THROUGH RECURSION.  </h2>
+      <code> 
+      #include&lt;stdio.h&gt;
+
+      int binarySearchRecursive(int arr[], int left, int right, int searchValue)
+{
+    if (left > right)
+    {
+        return -1;
+    }
+
+    int mid = left + (right - left) / 2;
+
+    if (arr[mid] == searchValue)
+    {
+        return mid;
+    }
+
+    if (arr[mid] < searchValue)
+    {
+        return binarySearchRecursive(arr, mid + 1, right, searchValue);
+    }
+    else
+    {
+        return binarySearchRecursive(arr, left, mid - 1, searchValue);
+    }
+}
+
+int main()
+{
+    int n, searchValue;
+
+    printf("Enter the number of elements in the sorted array: ");
+    scanf("%d", &n);
+
+    int arr[n];
+
+    printf("Enter the elements of the sorted array:\n");
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Enter the integer value to search for: ");
+    scanf("%d", &searchValue);
+
+    int result = binarySearchRecursive(arr, 0, n - 1, searchValue);
+
+    if (result == -1)
+    {
+        printf("Element %d not found in the array.\n", searchValue);
+    }
+    else
+    {
+        printf("Element %d found at index %d in the array.\n", searchValue, result);
+    }
+
+    return 0;
+}
+
+      
+
+    </code>
+    </pre>
+    </div>
+
+
+    <div>
+      <pre class="program">
+              <h2>Output:- </h2>
+                
+              Enter the number of elements in the sorted array: 5
+              Enter the elements of the sorted array:
+              10
+              20
+              34
+              56
+              78
+              Enter the integer value to search for: 78
+              Element 78 found at index 4 in the array.
+
+          </pre>
+    </div>
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

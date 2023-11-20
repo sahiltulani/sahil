@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2D Arrays</title>
+  <style>
+        header {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+</style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to DSA Question Solutions</h1>
+        <p>Your go-to source for cracking DSA problems!</p>
+    </header>
+
+  <script>
+
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
+</script>
+<button onclick="topFunction()" id="myBtn" title="Go to top"><img src="icons8-arrow-up-26.png" alt=""></button>
+
+
+  <div>
+    <h1>2D Arrays</h1>
+  </div>
+
+  <div>
+
+  <pre class="program">
+  <h2> 1) PROGRAM :- SUM OF MATRIX </h2>
+  <code> 
+  #include&lt;stdio.h&gt; 
+  #include&lt;conio.h&gt;
+  #include&lt;dos.h&gt;
+                
+void main()
+{
+  int a[2][3], b[2][3], sum[2][3], i, j;
+
+  printf("Enter first Matrix:- \n");
+  for (i = 0; i < 2; i++)
+  {
+    for (j = 0; j < 3; j++)
+    {
+      scanf("%d", &a[i][j]);
+    }
+  }
+
+  printf("Enter Second Matrix:- \n");
+  for (i = 0; i < 2; i++)
+  {
+    for (j = 0; j < 3; j++)
+    {
+      scanf("%d", &b[i][j]);
+    }
+  }
+
+  printf("The first Matrix:- \n");
+  for (i = 0; i < 2; i++)
+  {
+    for (j = 0; j < 3; j++)
+    {
+      printf("%d \t", a[i][j]);
+    }
+    printf("\n");
+  }
+
+  printf("The Second Matrix:- \n");
+  for (i = 0; i < 2; i++)
+  {
+    for (j = 0; j < 3; j++)
+    {
+      printf("%d \t", b[i][j]);
+    }
+    printf("\n");
+  }
+
+  printf("Sum of Matrix:- \n");
+  for (i = 0; i < 2; i++)
+  {
+    for (j = 0; j < 3; j++)
+    {
+      sum[i][j] = a[i][j] + b[i][j];
+      printf("%d \t", sum[i][j]);
+    }
+    printf("\n");
+  }
+  getch();
+}
+
+</code>
+
+</pre>
+  
+</div>
+
+  <div>
+    <pre class="program">
+            <h2>Output:- </h2>
+            Enter first matrix:-
+            1
+            1
+            1
+            1
+            1
+            1
+
+            Enter Second matrix:-
+            1
+            1
+            1
+            1
+            1
+            1
+
+            The first Matrix:-
+            1      1      1
+            1      1      1
+
+            The Second Matrix:-
+            1      1      1
+            1      1      1
+
+            Sum of Matrix:-
+            2      2      2
+            2      2      2
+        
+
+
+        </pre>
+  </div>
+
+  <div>
+  <pre class="program">
+  <h2> 2) Program:- Multiplication of Matrix</h2>
+   <code>
+  #include&lt;stdio.h&gt; 
+  #include&lt;conio.h&gt;
+  #include&lt;dos.h&gt;
+
+    
+// Multiplication of Matrix
+
+void main()
+{
+  int a[3][3], b[3][2], result[3][2];
+  int sum = 0;
+  int i, j, k;
+
+  clrscr();
+
+  printf("enter first matrix:- \n");
+  for (i = 0; i < 3; i++)
+  {
+    for (j = 0; j < 3; j++)
+    {
+      scanf("%d", &a[i][j]);
+    }
+  }
+
+  printf("enter second matrix:- \n");
+  for (i = 0; i < 3; i++)
+  {
+    for (j = 0; j < 2; j++)
+    {
+      scanf("%d", &b[i][j]);
+    }
+  }
+
+  printf("The first matrix:- \n");
+  for (i = 0; i < 3; i++)
+  {
+    for (j = 0; j < 3; j++)
+    {
+      printf("%d \t", a[i][j]);
+    }
+    printf("\n");
+  }
+
+  printf("The Second matrix:- \n");
+  for (i = 0; i < 3; i++)
+  {
+    for (j = 0; j < 2; j++)
+    {
+      printf("%d \t", b[i][j]);
+    }
+    printf("\n");
+  }
+
+  // calculate matrix
+
+  for (i = 0; i < 3; i++)
+  {
+    for (j = 0; j < 2; j++)
+    {
+      for (k = 0; k < 3; k++)
+      {
+        sum = sum + a[i][k] * b[k][j];
+      }
+      result[i][j] = sum;
+    }
+  }
+
+  printf("Multiplication of Matrix:- \n");
+
+  for (i = 0; i < 3; i++)
+  {
+    for (j = 0; j < 2; j++)
+    {
+      printf("%d \t", result[i][j]);
+    }
+    printf("\n");
+  }
+
+  delay(8000);
+}
+
+
+   </code>       
+                
+              
+  </pre>            
+  </div>
+
+  <div>
+    <pre class="program">
+                <h2>Output:- </h2>
+                enter first matrix:-
+                1
+                2
+                3
+                4
+                5
+                6
+                7
+                89
+                9
+                
+                enter second matrix:-
+                1
+                1
+                2
+                3
+                4
+                6
+
+                The first matrix:-
+                1      2      3
+                4      5      6
+                7      89     9
+
+                The Second matrix:-
+                1      1      
+                2      3      
+                4      6
+
+                Multiplication of matrix:-
+                17     42      
+                80     135      
+                356    684
+                
+               
+                 
+            </pre>
+  </div>
+
+
+  <div>
+    <pre class="program">
+    <h2> 3) Program:- Transpose of Matrix</h2>
+     <code>
+  #include&lt;stdio.h&gt; 
+  #include&lt;conio.h&gt;
+  #include&lt;dos.h&gt;
+
+      // Transpose of a Matrix
+
+void main()
+{
+  int a[3][3];
+  int i, j;
+
+  clrscr();
+
+  printf("enter matrix:- \n");
+  for (i = 0; i < 3; i++)
+  {
+    for (j = 0; j < 3; j++)
+    {
+      scanf("%d", &a[i][j]);
+    }
+  }
+
+  printf("The matrix is :- \n");
+  for (i = 0; i < 3; i++)
+  {
+    for (j = 0; j < 3; j++)
+    {
+      printf("%d \t", a[i][j]);
+    }
+    printf("\n");
+  }
+
+  printf("The Transpose matrix is :- \n");
+  for (i = 0; i < 3; i++)
+  {
+    for (j = 0; j < 3; j++)
+    {
+      printf("%d \t", a[j][i]);
+    }
+    printf("\n");
+  }
+
+  delay(9000);
+}
+
+</code>       
+                  
+                
+    </pre>            
+    </div>
+
+  <div>
+    <pre class="program">
+      <h2>Output:-</h2>
+      enter matrix:- 
+      1
+      2
+      3
+      4
+      5
+      6
+      7
+      8
+      9
+      The matrix is :- 
+      1       2       3 
+      4       5       6 
+      7       8       9 
+      The Transpose matrix is :-     
+      1       4       7 
+      2       5       8 
+      3       6       9 
+            
+    </pre>
+  </div>  
+
+
+  <div>
+    <pre class="program">
+    <h2> 4) Program:- Subtraction of Matrix</h2>
+     <code>
+  #include&lt;stdio.h&gt; 
+  #include&lt;conio.h&gt;
+  #include&lt;dos.h&gt;
+
+  // Subtraction of Matrix
+
+void main()
+{
+  int a[2][3], b[2][3], sub[2][3], i, j;
+  clrscr();
+
+  printf("Enter first Matrix:- \n");
+  for (i = 0; i < 2; i++)
+  {
+    for (j = 0; j < 3; j++)
+    {
+      scanf("%d", &a[i][j]);
+    }
+  }
+
+  printf("Enter Second Matrix:- \n");
+  for (i = 0; i < 2; i++)
+  {
+    for (j = 0; j < 3; j++)
+    {
+      scanf("%d", &b[i][j]);
+    }
+  }
+
+  printf("The first Matrix:- \n");
+  for (i = 0; i < 2; i++)
+  {
+    for (j = 0; j < 3; j++)
+    {
+      printf("%d \t", a[i][j]);
+    }
+    printf("\n");
+  }
+
+  printf("The Second Matrix:- \n");
+  for (i = 0; i < 2; i++)
+  {
+    for (j = 0; j < 3; j++)
+    {
+      printf("%d \t", b[i][j]);
+    }
+    printf("\n");
+  }
+
+  printf("Subtraction of Matrix:- \n");
+  for (i = 0; i < 2; i++)
+  {
+    for (j = 0; j < 3; j++)
+    {
+      sub[i][j] = a[i][j] - b[i][j];
+      printf("%d \t", sub[i][j]);
+    }
+    printf("\n");
+  }
+
+  getch();
+}
+ </code>       
+                  
+                
+    </pre>            
+    </div>
+
+
+    <div>
+      <pre class="program">
+        <h2>Output:- </h2>
+        Enter first Matrix:- 
+        1
+        2
+        1
+        1
+        1
+        1
+        Enter Second Matrix:- 
+        1
+        1
+        1
+        1
+        1
+        1
+        The first Matrix:- 
+        1       2       1
+        1       1       1
+        The Second Matrix:-
+        1       1       1
+        1       1       1
+        Subtraction of Matrix:-
+        0       1       0
+        0       0       0         
+ 
+  
+
+
+      </pre>
+    </div>
+
+
+    <div>
+      <pre class="program">
+      <h2> 5) Program:- Enter a matrix and display it in matrix format </h2>
+       <code>
+    #include&lt;stdio.h&gt; 
+    #include&lt;conio.h&gt;
+    #include&lt;dos.h&gt;
+  
+    void main()
+{
+      // Enter a matrix of 4 rows and 2 columns from the user display it in matrix format
+    
+      int arr[4][2];
+
+    printf("enter matrix:- \n");
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j < 2; j++)
+        {
+            printf("enter element [%d][%d] :- ", i, j);
+            scanf("%d", &arr[i][j]);
+        }
+    }
+
+    printf("The Matrix is :- \n");
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j < 2; j++)
+        {
+            printf("%d \t", arr[i][j]);
+        }
+        printf("\n");
+    }
+}
+   </code>       
+                    
+                  
+      </pre>            
+      </div>
+
+      <div>
+        <pre class="program">
+          <h2>Output:- </h2>
+
+          enter matrix:- 
+          enter element [0][0] :- 1
+          enter element [0][1] :- 2
+          enter element [1][0] :- 4
+          enter element [1][1] :- 6
+          enter element [2][0] :- 7
+          enter element [2][1] :- 89
+          enter element [3][0] :- 90
+          enter element [3][1] :- 92
+          The Matrix is :- 
+          1       2 
+          4       6 
+          7       89 
+          90      92           
+        </pre>
+      </div>
+  
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strings</title>
+ <style>
+        header {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+</style>
+</head>
+
+<body>
+  <header>
+        <h1>Welcome to DSA Question Solutions</h1>
+        <p>Your go-to source for cracking DSA problems!</p>
+    </header>
+
+
+  <script>
+
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
+</script>
+<button onclick="topFunction()" id="myBtn" title="Go to top"><img src="icons8-arrow-up-26.png" alt=""></button>
+
+
+
+  <div>
+    <h1> Strings </h1>
+  </div>
+
+  <div>
+
+    <pre class="program">
+    <h2> 1) PROGRAM :- ENTER THE STRING FROM USER AND CONVERT IN UPPERCASE ? </h2>
+    <code> 
+    #include&lt;stdio.h&gt; 
+    #include&lt;conio.h&gt;
+    #include&lt;dos.h&gt;
+  
+    void main()
+{
+   char name[30];
+   int i;
+   clrscr();
+   printf("Enter the lowercase string:- ");
+   gets(name);
+
+   for (i = 0; name[i] != '\0'; i++)
+   {
+
+      if (name[i] >= 97 && name[i] <= 122)
+      {
+         name[i] = name[i] - 32;
+      }
+   }
+   printf("The uppercase string is :- %s", name);
+
+   delay(5000);
+}
+
+  
+  </code>
+  </pre>
+  </div>
+  
+    
+  <div>
+      <pre class="program">
+              <h2>Output:- </h2>
+                
+              Enter the lowercase string:- hello world
+              The uppercase string is :- HELLO WORLD  
+  
+          </pre>
+    </div>
+
+
+    <div>
+
+      <pre class="program">
+      <h2> 2) PROGRAM :- ENTER THE STRING FROM USER AND CONVERT IN LOWERCASE ? </h2>
+      <code> 
+      #include&lt;stdio.h&gt; 
+      #include&lt;conio.h&gt;
+      #include&lt;dos.h&gt;
+
+      void main()
+{
+   char name[30];
+   int i;
+   clrscr();
+
+   printf("Enter the uppercase string:- ");
+   gets(name);
+
+   for (i = 0; name[i] != '\0'; i++)
+   {
+      if (name[i] >= 65 && name[i] <= 90)
+      {
+         name[i] = name[i] + 32;
+      }
+   }
+   printf("The lowercase string is :- %s", name);
+
+   delay(5000);
+}
+    
+         
+    </code>
+    </pre>
+    </div>
+
+    
+    <div>
+      <pre class="program">
+              <h2>Output:- </h2>
+                
+              Enter the uppercase string:- HELLO WORLD
+              The lowercase string is :- hello world          
+  
+          </pre>
+    </div>
+
+
+    <div>
+
+      <pre class="program">
+      <h2> 3) PROGRAM :- ENTER THE STRING FROM USER AND CONVERT INTO SENTENCE CASE ? </h2>
+      <code> 
+      #include&lt;stdio.h&gt; 
+      #include&lt;conio.h&gt;
+      #include&lt;dos.h&gt;
+
+      void main()
+{
+   char str[80];
+   int i;
+   clrscr();
+
+   printf("Enter any string:- ");
+   gets(str);
+
+   printf("The original string is :- %s", str);
+
+   if (str[0] >= 'a' && str[0] <= 'z')
+   {
+      str[0] = str[0] - 32;
+   }
+
+   for (i = 1; str[i] != '\0'; i++)
+   {
+      if (str[i] >= 'A' && str[i] <= 'Z')
+      {
+         str[i] = str[i] + 32;
+      }
+   }
+   printf("\n String in sentence case:- %s", str);
+
+   delay(8000);
+}
+    
+      
+    </code>
+    </pre>
+    </div>
+
+
+    <div>
+      <pre class="program">
+              <h2>Output:- </h2>
+                
+              Enter any string:- this is a sentence      
+              The original string is :- this is a sentence 
+              String in sentence case:- This is a sentence           
+          </pre>
+    </div>
+
+    
+    <div>
+
+      <pre class="program">
+      <h2> 4) PROGRAM :- ENTER THE STRING FROM USER AND CONVERT INTO TITLE CASE ? </h2>
+      <code> 
+      #include&lt;stdio.h&gt; 
+      #include&lt;conio.h&gt;
+      #include&lt;dos.h&gt;
+
+      void main()
+{
+
+   char str[80];
+   int i;
+   clrscr();
+
+   printf("Enter any string:- ");
+   gets(str);
+
+   for (i = 0; str[i] != '\0'; i++)
+   {
+      if (str[i] >= 'A' && str[i] <= 'Z')
+      {
+         str[i] = str[i] + 32;
+      }
+   }
+   str[0] = str[0] - 32;
+
+   for (i = 1; str[i] != '0'; i++)
+   {
+
+      if (str[i] == ' ')
+         str[i + 1] = str[i + 1] - 32;
+   }
+   printf("String in title case:- %s", str);
+
+   delay(9000);
+} 
+         
+    
+    </code>
+    </pre>
+    </div>
+
+    
+    <div>
+      <pre class="program">
+              <h2>Output:- </h2>
+                
+              Enter any string:- the portrait lady
+              String in title case:- The Portrait Lady                      
+          </pre>
+    </div>
+
+    
+    <div>
+
+      <pre class="program">
+      <h2> 5) PROGRAM :- ENTER THE STRING FROM USER AND CONVERT INTO TOGGLE CASE ?  </h2>
+      <code> 
+      #include&lt;stdio.h&gt; 
+      #include&lt;conio.h&gt;
+      #include&lt;dos.h&gt;
+
+      void main()
+{
+   char s[80];
+   int i;
+
+   clrscr();
+   printf("Enter any string:- ");
+   gets(s);
+
+   for (i = 0; s[i] != '\0'; i++)
+   {
+      if (s[i] >= 65 && s[i] <= 90)
+         s[i] = s[i] + 32;
+      else if (s[i] >= 97 && s[i] <= 122)
+         s[i] = s[i] - 32;
+   }
+
+   printf("String in toggle case:- %s", s);
+
+   delay(7000);
+}
+
+    
+    </code>
+    </pre>
+    </div>
+
+    
+    <div>
+      <pre class="program">
+              <h2>Output:- </h2>
+                
+              Enter any string:- this is a toggle case
+              String in toggle case:- THIS IS A TOGGLE CASE
+              
+          </pre>
+    </div>
+
+    
+    <div>
+
+      <pre class="program">
+      <h2> 6) PROGRAM :-  ENTER THE STRING FROM USER AND FINAL LENGTH OF THE STRING ?  </h2>
+      <code> 
+      #include&lt;stdio.h&gt; 
+      #include&lt;conio.h&gt;
+      #include&lt;dos.h&gt;
+
+      void main()
+{
+   char str[90];
+   int i;
+   int length = 0;
+
+   clrscr();
+
+   printf("enter any string:- ");
+   gets(str);
+
+   for (i = 0; str[i] != '\0'; i++)
+   {
+      length++;
+   }
+   printf("\n Final length of the string:- %d", length);
+
+   delay(7000);
+}
+
+    
+    </code>
+    </pre>
+    </div>
+
+    
+    <div>
+      <pre class="program">
+              <h2>Output:- </h2>
+                
+              enter any string:- hello world
+              Final length of the string:- 11  
+              
+          </pre>
+    </div>
+
+
+    <div>
+
+      <pre class="program">
+      <h2> 7) PROGRAM :-  ENTER TWO STRINGS FROM USER AND COMPARE THOSE STRINGS THAT THEY ARE EQUAL OR NOT?  </h2>
+      <code> 
+      #include&lt;stdio.h&gt; 
+      #include&lt;conio.h&gt;
+      #include&lt;dos.h&gt;
+
+      int compare(char[], char[]);
+
+int main()
+{
+
+   char str1[90], str2[90];
+   int c;
+   clrscr();
+
+   printf("enter the first string:- ");
+   gets(str1);
+
+   printf("enter the second string:- ");
+   gets(str2);
+
+   c = compare(str1, str2);
+
+   if (c == 0)
+      printf("strings are same");
+   else
+      printf("strings are not same");
+
+   delay(7000);
+   return 0;
+}
+
+int compare(char a[], char b[])
+{
+   int flag = 0, i = 0;
+
+   while (a[i] != '\0' && b[i] != '\0')
+   {
+      if (a[i] != b[i])
+      {
+         flag = 1;
+         break;
+      }
+
+      i++;
+   }
+
+   if (flag == 0)
+      return 0;
+
+   else
+      return 1;
+}
+
+
+    
+    </code>
+    </pre>
+    </div>
+
+
+    <div>
+      <pre class="program">
+              <h2>Output:- </h2>
+                
+              enter the first string:- hello world
+              enter the second string:- hello world
+              strings are same 
+              
+          </pre>
+    </div>
+
+
+    <div>
+
+      <pre class="program">
+      <h2> 8) PROGRAM :- ENTER TWO STRINGS FROM USER AND CONCATENATE THOSE STRINGS IN ANOTHER STRING AND DISPLAY THE ANSWER </h2>
+      <code> 
+      #include&lt;stdio.h&gt; 
+
+      int main()
+{
+   char s1[100] = "programming ", s2[] = "is awesome";
+   int length, j;
+
+   // store length of s1 in the length variable
+   length = 0;
+   while (s1[length] != '\0')
+   {
+      ++length;
+   }
+
+   // concatenate s2 to s1
+   for (j = 0; s2[j] != '\0'; ++j, ++length)
+   {
+      s1[length] = s2[j];
+   }
+
+   // terminating the s1 string
+   s1[length] = '\0';
+
+   printf("After concatenation: ");
+   puts(s1);
+
+   return 0;
+}
+
+     
+
+    </code>
+    </pre>
+    </div>
+
+
+    <div>
+      <pre class="program">
+              <h2>Output:- </h2>
+                
+              After concatenation: programming is awesome 
+              
+          </pre>
+    </div>
+
+
+    <div>
+
+      <pre class="program">
+      <h2> 9) PROGRAM :- ENTER THE STRING FROM USER AND COPY IT INTO ANOTHER STRING VARIABLE? </h2>
+      <code> 
+      #include&lt;stdio.h&gt;
+
+      int main()
+{
+   char inputString[100];
+   char copiedString[100];
+   int i = 0;
+
+   printf("Enter a string: ");
+   scanf("%99s", inputString);
+
+   while (inputString[i] != '\0' && i < 99)
+   {
+      copiedString[i] = inputString[i];
+      i++;
+   }
+
+   copiedString[i] = '\0';
+
+   printf("Original string: %s\n", inputString);
+   printf("Copied string: %s\n", copiedString);
+
+   return 0;
+}
+    
+
+    </code>
+    </pre>
+    </div>
+
+
+    <div>
+      <pre class="program">
+              <h2>Output:- </h2>
+               
+              Enter a string: hello
+              Original string: hello
+              Copied string: hello
+              
+          </pre>
+    </div>
+
+
+    <div>
+
+      <pre class="program">
+      <h2> 10) PROGRAM :- ENTER THE STRING FROM USER, ENTER THE INDEX NUMBER AND PRINT CHARACTER PRESENT ON THAT INDEX ? </h2>
+      <code> 
+      #include&lt;stdio.h&gt;
+
+      int main()
+{
+   char inputString[100];
+   int index;
+
+   printf("Enter a string: ");
+   scanf("%99s", inputString);
+
+   printf("Enter the index: ");
+   scanf("%d", &index);
+
+   int stringLength = 0;
+
+   while (inputString[stringLength] != '\0')
+   {
+      stringLength++;
+   }
+
+   if (index >= 0 && index < stringLength)
+   {
+      printf("Character at index %d: %c\n", index, inputString[index]);
+   }
+   else
+   {
+      printf("Invalid index. The string has %d characters.\n", stringLength);
+   }
+
+   return 0;
+}
+
+        
+    </code>
+    </pre>
+    </div>
+
+
+    <div>
+      <pre class="program">
+              <h2>Output:- </h2>
+               
+              Enter a string: hello
+              Enter the index: 2
+              Character at index 2: l
+              
+          </pre>
+    </div>
+
+
+    <div>
+
+      <pre class="program">
+      <h2> 11) PROGRAM :- ENTER THE STRING FROM USER AND CHECK ITS PALINDROME OR NOT? </h2>
+      <code> 
+      #include&lt;stdio.h&gt;
+
+      int isPalindrome(char *str)
+{
+    int left = 0;
+    int right = 0;
+
+    
+    while (str[right] != '\0')
+    {
+        right++;
+    }
+    right--;
+
+    
+    while (left < right)
+    {
+        if (str[left] != str[right])
+        {
+            return 0; 
+        }
+        left++;
+        right--;
+    }
+    return 1; 
+}
+
+int main()
+{
+    char str[100];
+
+    printf("Enter a string: ");
+    scanf("%s", str);
+
+    if (isPalindrome(str))
+    {
+        printf("%s is a palindrome.\n", str);
+    }
+    else
+    {
+        printf("%s is not a palindrome.\n", str);
+    }
+
+    return 0;
+}
+
+        
+    </code>
+    </pre>
+    </div>
+
+
+    <div>
+      <pre class="program">
+              <h2>Output:- </h2>
+               
+              Enter a string: nitin
+              nitin is a palindrome.
+              
+          </pre>
+    </div>
+
+
+    <div>
+
+      <pre class="program">
+      <h2> 12) PROGRAM :- ENTER THE STRING FROM THE USER AND PRINT EACH CHARACTER IN NEW LINE ? </h2>
+      <code> 
+      #include&lt;stdio.h&gt;
+
+      int main()
+{
+    char str[100];
+
+    printf("Enter a string: ");
+    scanf("%s", str);
+
+    printf("Characters in the string, each on a new line:\n");
+
+    for (int i = 0; str[i] != '\0'; i++)
+    {
+        printf("%c\n", str[i]);
+    }
+
+    return 0;
+}
+
+        
+    </code>
+    </pre>
+    </div>
+
+
+    <div>
+      <pre class="program">
+              <h2>Output:- </h2>
+               
+              Enter a string: hello
+              Characters in the string, each on a new line:
+              h
+              e
+              l
+              l
+              o
+              
+          </pre>
+    </div>
+
+
+    <div>
+
+      <pre class="program">
+      <h2> 13) PROGRAM :- ENTER THE STRING FROM THE USER AND COPY REVERSE OF THE STRING INTO ANOTHER STRING? </h2>
+      <code> 
+      #include&lt;stdio.h&gt;
+
+      int main()
+{
+    char str[100];
+    char reverseStr[100];
+
+    printf("Enter a string: ");
+    scanf("%s", str);
+
+    
+    int length = 0;
+    while (str[length] != '\0')
+    {
+        length++;
+    }
+
+    
+    int i, j;
+    for (i = length - 1, j = 0; i >= 0; i--, j++)
+    {
+        reverseStr[j] = str[i];
+    }
+    reverseStr[j] = '\0'; 
+
+    printf("Original string: %s\n", str);
+    printf("Reversed string: %s\n", reverseStr);
+
+    return 0;
+}
+
+        
+    </code>
+    </pre>
+    </div>
+
+
+    <div>
+      <pre class="program">
+              <h2>Output:- </h2>
+               
+              Enter a string: hello
+              Original string: hello
+              Reversed string: olleh
+              
+          </pre>
+    </div>
+
+
+    <div>
+
+      <pre class="program">
+      <h2> 14) PROGRAM :- ENTER THE STRING FROM THE USER AND PRINT THE DIFFERENCE OF ASCII VALUE OF EACH CHARACTER ?  </h2>
+      <code> 
+      #include&lt;stdio.h&gt;
+
+      int main()
+{
+    char inputString[100];
+
+    printf("Enter a string: ");
+
+    int i = 0;
+    char currentChar;
+    while (1)
+    {
+        currentChar = getchar();
+        if (currentChar == '\n' || i >= 99)
+        {
+
+            break;
+        }
+        inputString[i] = currentChar;
+        i++;
+    }
+    inputString[i] = '\0';
+
+    int length = i;
+    printf("ASCII differences:\n");
+    for (int j = 0; j < length - 1; j++)
+    {
+        int diff = inputString[j + 1] - inputString[j];
+        printf("%c - %c = %d\n", inputString[j + 1], inputString[j], diff);
+    }
+
+    return 0;
+}
+
+
+        
+    </code>
+    </pre>
+    </div>
+
+
+    <div>
+      <pre class="program">
+              <h2>Output:- </h2>
+               
+              Enter a string: hello
+              ASCII differences:
+              e - h = -3
+              l - e = 7
+              l - l = 0
+              o - l = 3
+              
+          </pre>
+    </div>
+
+
+    <div>
+
+      <pre class="program">
+      <h2> 15) PROGRAM :- ENTER THE STRING FROM THE USER, ENTER A CHARACTER ALSO AND SEARCH THE CHARACTER IN THE STRING? </h2>
+      #include&lt;stdio.h&gt;
+
+      int main()
+{
+    char inputString[100];
+    char searchChar;
+
+    // Prompt the user to enter a string
+    printf("Enter a string: ");
+    fgets(inputString, sizeof(inputString), stdin);
+
+    // Prompt the user to enter a character to search for
+    printf("Enter a character to search for: ");
+    scanf(" %c", &searchChar); // Note the space before %c to consume the newline character
+
+    // Search for the character in the string
+    int found = 0;
+    for (int i = 0; inputString[i] != '\0'; i++)
+    {
+        if (inputString[i] == searchChar)
+        {
+            found = 1;
+            break; // Character found, exit the loop
+        }
+    }
+
+    if (found)
+    {
+        printf("'%c' is found in the string.\n", searchChar);
+    }
+    else
+    {
+        printf("'%c' is not found in the string.\n", searchChar);
+    }
+
+    return 0;
+}
+
+
+
+        
+    </code>
+    </pre>
+    </div>
+
+
+    <div>
+      <pre class="program">
+              <h2>Output:- </h2>
+               
+              Enter a string: world
+              Enter a character to search for: o
+              'o' is found in the string. 
+              
+          </pre>
+    </div>
+
+
+    <div>
+
+      <pre class="program">
+      <h2> 16) PROGRAM :- ENTER THE STRING FROM THE USER, ALSO ENTER A CHARACTER AND PRINT THE INDEX OF THE CHARACTER IF IT <br> IS EXIST IN THE STRING ELSE PRINT -1. </h2>
+      #include&lt;stdio.h&gt;
+
+      int main()
+{
+    char inputString[100];
+    char searchChar;
+
+    printf("Enter a string: ");
+    fgets(inputString, sizeof(inputString), stdin);
+
+    printf("Enter a character to search for: ");
+    scanf(" %c", &searchChar);
+
+    int found = -1;
+
+    for (int i = 0; inputString[i] != '\0'; i++)
+    {
+        if (inputString[i] == searchChar)
+        {
+            found = i;
+            break;
+        }
+    }
+
+    if (found != -1)
+    {
+        printf("'%c' found at index %d in the string.\n", searchChar, found);
+    }
+    else
+    {
+        printf("'%c' not found in the string.\n", searchChar);
+    }
+
+    return 0;
+}
+
+     
+    </code>
+    </pre>
+    </div>
+
+
+    <div>
+      <pre class="program">
+              <h2>Output:- </h2>
+               
+              Enter a string: information
+              Enter a character to search for: n
+              'n' found at index 1 in the string.
+              
+          </pre>
+    </div>
+
+
+    <div>
+
+      <pre class="program">
+      <h2> 17) PROGRAM :- ENTER THE STRING FROM THE USER, AND COUNT THE NUMBER OF VOWELS </h2>
+      #include&lt;stdio.h&gt;
+
+      int main()
+{
+    char inputString[100];
+    int vowelCount = 0;
+
+    // Prompt the user to enter a string
+    printf("Enter a string: ");
+    fgets(inputString, sizeof(inputString), stdin);
+
+    // Iterate through the string and count the vowels
+    for (int i = 0; inputString[i] != '\0'; i++)
+    {
+        char c = inputString[i];
+
+        // Check if the character is a vowel (both uppercase and lowercase)
+        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
+            c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U')
+        {
+            vowelCount++;
+        }
+    }
+
+    printf("Number of vowels in the string: %d\n", vowelCount);
+
+    return 0;
+}
+
+
+    </code>
+    </pre>
+    </div>
+
+
+    <div>
+      <pre class="program">
+              <h2>Output:- </h2>
+               
+              Enter a string: world
+              Number of vowels in the string: 1
+              
+          </pre>
+    </div>
+
+
+    <div>
+
+      <pre class="program">
+      <h2> 18) PROGRAM :- ENTER THE STRING FROM THE USER AND CONVERT INTO AN INTEGER VALUE? </h2>
+      #include&lt;stdio.h&gt;
+
+      int main()
+{
+    char inputString[100];
+    int integerValue = 0;
+    int isNegative = 0; // To handle negative numbers
+
+    // Prompt the user to enter a string
+    printf("Enter a string: ");
+    fgets(inputString, sizeof(inputString), stdin);
+
+    int i = 0;
+
+    // Check for a leading minus sign to handle negative numbers
+    if (inputString[i] == '-')
+    {
+        isNegative = 1;
+        i++;
+    }
+
+    // Iterate through the string and convert it to an integer
+    while (inputString[i] >= '0' && inputString[i] <= '9')
+    {
+        integerValue = integerValue * 10 + (inputString[i] - '0');
+        i++;
+    }
+
+    if (isNegative)
+    {
+        integerValue = -integerValue;
+    }
+
+    printf("Integer value: %d\n", integerValue);
+
+    return 0;
+}
+
+
+
+    </code>
+    </pre>
+    </div>
+
+
+    <div>
+      <pre class="program">
+              <h2>Output:- </h2>
+               
+              Enter a string: hello
+              Integer value: 0
+              
+          </pre>
+    </div>
+
+
+    <div>
+
+      <pre class="program">
+      <h2> 19) PROGRAM :- ENTER THE STRING FROM THE USER AND CONVERT INTO A FLOAT VALUE? </h2>
+      #include&lt;stdio.h&gt;
+
+      int main()
+{
+    char inputString[100];
+    float floatValue = 0.0f;
+    float decimalPlace = 0.1f;
+    int isNegative = 0;   // To handle negative numbers
+    int isFractional = 0; // To handle fractional parts
+
+    // Prompt the user to enter a string
+    printf("Enter a string: ");
+    fgets(inputString, sizeof(inputString), stdin);
+
+    int i = 0;
+
+    // Check for a leading minus sign to handle negative numbers
+    if (inputString[i] == '-')
+    {
+        isNegative = 1;
+        i++;
+    }
+
+    // Iterate through the string and convert it to a float
+    while (inputString[i] != '\0')
+    {
+        char c = inputString[i];
+
+        if (c >= '0' && c <= '9')
+        {
+            if (isFractional)
+            {
+                floatValue = floatValue + (c - '0') * decimalPlace;
+                decimalPlace /= 10;
+            }
+            else
+            {
+                floatValue = floatValue * 10 + (c - '0');
+            }
+        }
+        else if (c == '.')
+        {
+            isFractional = 1;
+        }
+        else
+        {
+            break; // Exit the loop if a non-numeric character is encountered
+        }
+        i++;
+    }
+
+    if (isNegative)
+    {
+        floatValue = -floatValue;
+    }
+
+    printf("Float value: %f\n", floatValue);
+
+    return 0;
+}
+
+
+
+    </code>
+    </pre>
+    </div>
+
+
+    <div>
+      <pre class="program">
+              <h2>Output:- </h2>
+               
+              Enter a string: hello
+              Float value: 0.000000
+              
+          </pre>
+    </div>
+
+
+    <div>
+
+        <pre class="program">
+        <h2> 20) PROGRAM :- ENTER THE STRING FROM THE USER AND COUNT THE NUMBER OF CHARACTERS, WORDS, SPACES AND LINES </h2>
+        #include&lt;stdio.h&gt;
+        #include&lt;string.h&gt;
+
+  
+        int main()
+{
+    char input[1000];
+    int characters = 0, words = 0, spaces = 0, lines = 1;
+
+    printf("Enter a string (press Enter twice to end):\n");
+
+    while (1)
+    {
+        char c = getchar();
+
+        if (c == '\n')
+        {
+            lines++;
+        }
+        else if (c == ' ' || c == '\t')
+        {
+            spaces++;
+        }
+        else
+        {
+            characters++;
+        }
+
+        if (c == '\n')
+        {
+
+            char nextChar = getchar();
+            if (nextChar == '\n')
+            {
+                break;
+            }
+            else
+            {
+                ungetc(nextChar, stdin);
+            }
+        }
+    }
+
+    // Calculate the number of words
+    words = spaces + 1;
+
+    printf("Character count: %d\n", characters);
+    printf("Word count: %d\n", words);
+    printf("Space count: %d\n", spaces);
+    printf("Line count: %d\n", lines);
+
+    return 0;
+}
+
+  
+  
+  
+      </code>
+      </pre>
+      </div>
+
+
+      <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                 
+                Enter a string (press Enter twice to end):
+                i am anshul
+                
+                Character count: 9
+                Word count: 3
+                Space count: 2
+                Line count: 2
+                
+            </pre>
+      </div>
+
+
+      <div>
+
+        <pre class="program">
+        <h2> 21) PROGRAM :- PRINT ALL THE PERMUTATION OF A STRING I.E. "ABCDE". </h2>
+        #include&lt;stdio.h&gt;
+        #include&lt;string.h&gt;
+
+        // Function to swap characters at positions i and j in the string
+void swap(char *str, int i, int j)
+{
+    char temp = str[i];
+    str[i] = str[j];
+    str[j] = temp;
+}
+
+// Function to generate all permutations of a string
+void permute(char *str, int l, int r)
+{
+    if (l == r)
+    {
+        printf("%s\n", str); // Print the permutation when the string is fully permuted
+    }
+    else
+    {
+        for (int i = l; i <= r; i++)
+        {
+            swap(str, l, i);        // Swap characters at positions l and i
+            permute(str, l + 1, r); // Recursively permute the remaining characters
+            swap(str, l, i);        // Restore the original string for the next iteration
+        }
+    }
+}
+
+int main()
+{
+    char str[] = "ABCDE";
+    int n = strlen(str);
+
+    printf("All permutations of the string \"%s\":\n", str);
+    permute(str, 0, n - 1);
+
+    return 0;
+}
+
+
+  
+      </code>
+      </pre>
+      </div>
+
+
+      <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                 
+                All permutations of the string "ABCDE":
+                ABCDE
+                ABCED
+                ABDCE
+                ABDEC
+                ABEDC
+                ABECD
+                ACBDE
+                ACBED
+                ACDBE
+                ACDEB
+                ACEDB
+                ACEBD
+                ADCBE
+                ADCEB
+                ADBCE
+                ADBEC
+                ADEBC
+                ADECB
+                AECDB
+                AECBD
+                AEDCB
+                AEDBC
+                AEBDC
+                AEBCD
+                BACDE
+                BACED
+                BADCE
+                BADEC
+                BAEDC
+                BAECD
+                BCADE
+                BCAED
+                BCDAE
+                BCDEA
+                BCEDA
+                BCEAD
+                BDCAE
+                BDCEA
+                BDACE
+                BDAEC
+                BDEAC
+                BDECA
+                BECDA
+                BECAD
+                BEDCA
+                BEDAC
+                BEADC
+                BEACD
+                CBADE
+                CBAED
+                CBDAE
+                CBDEA
+                CBEDA
+                CBEAD
+                CABDE
+                CABED
+                CADBE
+                CADEB
+                CAEDB
+                CAEBD
+                CDABE
+                CDAEB
+                CDBAE
+                CDBEA
+                CDEBA
+                CDEAB
+                CEADB
+                CEABD
+                CEDAB
+                CEDBA
+                CEBDA
+                CEBAD
+                DBCAE
+                DBCEA
+                DBACE
+                DBAEC
+                DBEAC
+                DBECA
+                DCBAE
+                DCBEA
+                DCABE
+                DCAEB
+                DCEAB
+                DCEBA
+                DACBE
+                DACEB
+                DABCE
+                DABEC
+                DAEBC
+                DAECB
+                DECAB
+                DECBA
+                DEACB
+                DEABC
+                DEBAC
+                DEBCA
+                EBCDA
+                EBCAD
+                EBDCA
+                EBDAC
+                EBADC
+                EBACD
+                ECBDA
+                ECBAD
+                ECDBA
+                ECDAB
+                ECADB
+                ECABD
+                EDCBA
+                EDCAB
+                EDBCA
+                EDBAC
+                EDABC
+                EDACB
+                EACDB
+                EACBD
+                EADCB
+                EADBC
+                EABDC
+                EABCD
+                
+            </pre>
+      </div>
+
+
+      <div>
+
+        <pre class="program">
+        <h2> 22) PROGRAM :- ENTER THE STRING FROM THE USER, SORT THE STRING IN ASCENDING ORDER AND PRINT IT. </h2>
+        
+        #include&lt;stdio.h&gt;
+        #include&lt;string.h&gt;
+
+        void bubbleSort(char str[], int n)
+{
+    int i, j;
+    for (i = 0; i < n - 1; i++)
+    {
+        for (j = 0; j < n - i - 1; j++)
+        {
+            if (str[j] > str[j + 1])
+            {
+                // Swap the characters if they are out of order
+                char temp = str[j];
+                str[j] = str[j + 1];
+                str[j + 1] = temp;
+            }
+        }
+    }
+}
+
+int main()
+{
+    char str[100]; // You can adjust the size as needed
+    printf("Enter a string: ");
+    scanf("%s", str);
+
+    int n = strlen(str);
+
+    bubbleSort(str, n);
+
+    printf("Sorted string in ascending order: %s\n", str);
+
+    return 0;
+}
+
+        
+
+
+      </code>
+      </pre>
+      </div>
+
+
+      <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                 
+                Enter a string: information
+                Sorted string in ascending order: afiimnnoort
+                
+            </pre>
+      </div>
+
+
+      <div>
+
+        <pre class="program">
+        <h2> 23) PROGRAM :- ENTER A SENTENCE FROM USER AND THEN ENTER THE WORD AND COUNT THE OCCURENCE OF THAT WORD IN THE <br>SENTENCE. </h2>
+        
+        #include&lt;stdio.h&gt;
+        #include&lt;string.h&gt;
+
+        int countWordOccurrences(const char *sentence, const char *word)
+{
+    int count = 0;
+    const char *pos = sentence;
+
+    while ((pos = strstr(pos, word)) != NULL)
+    {
+        count++;
+        pos += strlen(word);
+    }
+
+    return count;
+}
+
+int main()
+{
+    char sentence[1000]; // You can adjust the size as needed
+    char word[100];      // You can adjust the size as needed
+
+    printf("Enter a sentence: ");
+    fgets(sentence, sizeof(sentence), stdin);
+    sentence[strlen(sentence) - 1] = '\0'; // Remove the newline character at the end
+
+    printf("Enter the word to count: ");
+    scanf("%s", word);
+
+    int count = countWordOccurrences(sentence, word);
+
+    printf("The word \"%s\" appears %d times in the sentence.\n", word, count);
+
+    return 0;
+}
+
+
+        
+      </code>
+      </pre>
+      </div>
+
+
+      <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                 
+                Enter a sentence: I am anshul
+                Enter the word to count: anshul
+                The word "anshul" appears 1 times in the sentence.
+                
+            </pre>
+      </div>
+
+
+      <div>
+
+        <pre class="program">
+        <h2> 24) PROGRAM :- ENTER A SENTENCE FROM USER AND THEN ENTER THE WORD AND REPLACE THAT WORD BY ANOTHER WORD. </h2>
+        
+        #include&lt;stdio.h&gt;
+        #include&lt;string.h&gt;
+
+        void replaceWord(char *sentence, const char *oldWord, const char *newWord)
+{
+    char *pos = sentence;
+    int oldWordLength = strlen(oldWord);
+    int newWordLength = strlen(newWord);
+    int diff = newWordLength - oldWordLength;
+
+    while ((pos = strstr(pos, oldWord)) != NULL)
+    {
+        memmove(pos + newWordLength, pos + oldWordLength, strlen(pos + oldWordLength) + 1);
+        memcpy(pos, newWord, newWordLength);
+        pos += newWordLength;
+        sentence = realloc(sentence, strlen(sentence) + diff + 1);
+    }
+}
+
+int main()
+{
+    char sentence[1000]; // You can adjust the size as needed
+    char oldWord[100];   // You can adjust the size as needed
+    char newWord[100];   // You can adjust the size as needed
+
+    printf("Enter a sentence: ");
+    fgets(sentence, sizeof(sentence), stdin);
+    sentence[strlen(sentence) - 1] = '\0'; // Remove the newline character at the end
+
+    printf("Enter the word to replace: ");
+    scanf("%s", oldWord);
+
+    printf("Enter the new word: ");
+    scanf("%s", newWord);
+
+    replaceWord(sentence, oldWord, newWord);
+
+    printf("Modified sentence: %s\n", sentence);
+
+    return 0;
+}
+
+
+
+        
+      </code>
+      </pre>
+      </div>
+
+
+      <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                 
+                Enter a sentence: hello world
+                Enter the word to replace: world
+                Enter the new word: word
+                Modified sentence: hello word
+                
+            </pre>
+      </div>
+
+
+      <div>
+
+        <pre class="program">
+        <h2> 25) PROGRAM :- ENTER THE STRING FROM THE USER AND TRIM/ ELIMINATE THE SPACES FROM BOTH ENDS (IF ANY). </h2>
+        
+        #include&lt;stdio.h&gt;
+        #include&lt;string.h&gt;
+        #include&lt;stdbool.h&gt;
+
+        void trimSpaces(char *str)
+{
+    int len = strlen(str);
+    int start = 0, end = len - 1;
+
+    // Find the first non-space character from the beginning
+    while (start < len && isspace(str[start]))
+    {
+        start++;
+    }
+
+    // Find the first non-space character from the end
+    while (end >= 0 && isspace(str[end]))
+    {
+        end--;
+    }
+
+    // If the string is all spaces, make it an empty string
+    if (start > end)
+    {
+        str[0] = '\0';
+    }
+    else
+    {
+        // Shift the characters to the beginning of the string
+        int i, j = 0;
+        for (i = start; i <= end; i++, j++)
+        {
+            str[j] = str[i];
+        }
+        str[j] = '\0'; // Null-terminate the trimmed string
+    }
+}
+
+int main()
+{
+    char str[1000]; // You can adjust the size as needed
+
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+    str[strlen(str) - 1] = '\0'; // Remove the newline character at the end
+
+    trimSpaces(str);
+
+    printf("Trimmed string: %s\n", str);
+
+    return 0;
+}
+
+
+        
+      </code>
+      </pre>
+      </div>
+
+
+      <div>
+        <pre class="program">
+                <h2>Output:- </h2>
+                 
+                Enter a string: hello word
+                Trimmed string: hello word
+                
+            </pre>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

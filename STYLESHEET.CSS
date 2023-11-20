@@ -1,0 +1,105 @@
+*{
+  padding: 0;
+  margin: 0;
+
+}
+
+#navbar{
+  color: white;
+  height: 50px;
+  margin: 3px;
+  border-radius: 10px;
+  position:absolute;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+a{
+  text-decoration: none;
+  color: white;
+  margin-right: 20px;
+  margin-left: 12px;
+  font-size: 22px ;
+}
+
+a:hover{
+  color: orange;
+
+}
+
+#logo{
+  font-size: 25px;
+  color: aqua;
+  font-family: cursive;
+  padding: 0px;
+  margin-right: 25px;
+ 
+
+}
+
+main{
+  height: 1244px;
+}
+
+h1{
+  text-align: center;
+  color:white;
+  font-family: cursive;
+  margin: -4px;
+  background-color: black;
+  font-size: 50px;
+}
+
+
+#maincontent{
+  background-color: black;
+  color:white;
+  margin: 0px;
+  padding: 16px;
+  font-size: 20px;
+  font-style: italic;
+  
+
+}
+
+h2{
+  font-family: cursive;
+  font-size: 30px;
+}
+
+
+#secondcontent{
+  background-color: black;
+  color: white;
+  margin: 0px;
+  padding: 16px;
+  font: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#thirdcontent{
+  background-color: black;
+  color: white;
+  margin: 0px;
+  padding: 16px;
+  font: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+h3{
+  font-family: cursive;
+  font-size: 20px;
+  
+}
+
+
+
+
+footer{
+  background-color:black;
+  color: aqua;
+  text-align: center;
+  height: 70px;
+  font-size: 20px;
+  
+ 
+}
+
